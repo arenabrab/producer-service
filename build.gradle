@@ -37,18 +37,5 @@ tasks.named('test') {
 }
 
 pact {
-    publish {
-        pactBrokerUrl = "https://squaretrade.pactflow.io"
-        pactBrokerToken = "YHsHQiENwpB5w4EcYG_p_A"
-    }
+    System.setProperty("pact.verifier.publishResults", "true")
 }
-
-//pact {
-//
-//    System.setProperty("pact.verifier.publishResults", "true")
-//    serviceProviders {
-//        "producer-service" {
-//            hasPactsFromPactBroker('https://squaretrade.pactflow.io', authentication: ['Bearer', 'FNvaNejaZbW3Lu5la-VaIg'])
-//        }
-//    }
-//}

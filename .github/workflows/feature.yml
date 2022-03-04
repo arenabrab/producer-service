@@ -30,15 +30,3 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build test
-
-      - name: Release new version
-        id: release
-        run: |
-          ./gradlew release \
-            -Prelease.customUsername=${{ github.actor }} \
-            -Prelease.customPassword=${{ github.token }}
-
-      - name: Publish Pact contract
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: pactPublish
