@@ -8,8 +8,14 @@ plugins {
 }
 
 group = 'com.example'
-version = scmVersion.version
 sourceCompatibility = '17'
+
+scmVersion {
+    versionCreator 'versionWithBranch'
+}
+
+version = scmVersion.version
+
 
 configurations {
     compileOnly {
@@ -37,5 +43,9 @@ tasks.named('test') {
 }
 
 pact {
-    System.setProperty("pact.verifier.publishResults", "true")
+    serviceProviders {
+        "provider-service" {
+            providerVersion = version
+        }
+    }
 }
