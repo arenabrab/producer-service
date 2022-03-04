@@ -43,6 +43,10 @@ tasks.named('test') {
 }
 
 pact {
+    broker {
+        pactBrokerUrl = "https://squaretrade.pactflow.io"
+        pactBrokerToken = "YHsHQiENwpB5w4EcYG_p_A"
+    }
     serviceProviders {
         "provider-service" {
             providerVersion = version
