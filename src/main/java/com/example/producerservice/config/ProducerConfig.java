@@ -24,7 +24,7 @@ public class ProducerConfig {
     }
 
     private static Mono<ServerResponse> getV2(ServerRequest request) {
-        return ServerResponse.ok().body(Mono.just("Hello from V3"), String.class);
+        return ServerResponse.ok().body(Mono.just("Hello from V2"), String.class);
     }
 
 }
