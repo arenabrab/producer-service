@@ -28,6 +28,7 @@ jobs:
 
       - name: Pull from main branch
         run: |
+          git config pull.rebase true
           git pull origin main
           git status
 
