@@ -39,3 +39,7 @@ jobs:
         with:
           arguments: build test
 
+      - name: Verify Pacts
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: pactVerify
