@@ -26,12 +26,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and test with Gradle
+      - name: Pull from main branch
+        run: |
+          git pull origin main
+          git status
+
+      - name: Build and test with Gradle and publish Pact verification results
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build test
 
-#      - name: Verify Pacts
-#        uses: gradle/gradle-build-action@v2
-#        with:
-#          arguments: pactVerify

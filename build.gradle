@@ -48,10 +48,4 @@ pact {
         pactBrokerUrl = "https://squaretrade.pactflow.io"
         pactBrokerToken = "YHsHQiENwpB5w4EcYG_p_A"
     }
-//    serviceProviders {
-//        'producer-service' {
-//            hasPactsFromPactBroker('https://squaretrade.pactflow.io', authentication: ['Bearer', 'YHsHQiENwpB5w4EcYG_p_A'])
-//            providerVersion = { version }
-//        }
-//    }
 }
