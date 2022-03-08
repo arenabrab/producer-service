@@ -1,14 +1,21 @@
 plugins {
     id 'org.springframework.boot' version '2.6.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'pl.allegro.tech.build.axion-release' version '1.13.6'
     id 'au.com.dius.pact' version '4.3.5'
     id 'groovy'
     id 'java'
 }
 
 group = 'com.example'
-version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+
+scmVersion {
+    versionCreator 'versionWithBranch'
+}
+
+version = scmVersion.version
+
 
 configurations {
     compileOnly {
@@ -33,21 +40,12 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
     systemProperties['pact.verifier.publishResults'] = true
+    systemProperties['pact.provider.version'] = scmVersion.version
 }
 
 pact {
-    publish {
+    broker {
         pactBrokerUrl = "https://squaretrade.pactflow.io"
         pactBrokerToken = "YHsHQiENwpB5w4EcYG_p_A"
     }
 }
-
-//pact {
-//
-//    System.setProperty("pact.verifier.publishResults", "true")
-//    serviceProviders {
-//        "producer-service" {
-//            hasPactsFromPactBroker('https://squaretrade.pactflow.io', authentication: ['Bearer', 'FNvaNejaZbW3Lu5la-VaIg'])
-//        }
-//    }
-//}
