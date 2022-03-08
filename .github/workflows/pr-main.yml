@@ -30,11 +30,6 @@ jobs:
         with:
           arguments: release
 
-      - name: Gradle cV
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: cV
-
       - name: Gradle test and publish results
         uses: gradle/gradle-build-action@v2
         with:
