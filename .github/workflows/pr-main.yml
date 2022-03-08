@@ -28,4 +28,4 @@ jobs:
       - name: Gradle test release
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: release pV -DGITHUB_CI=true
+          arguments: release test -DGITHUB_CI=true
