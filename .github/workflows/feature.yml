@@ -27,4 +27,4 @@ jobs:
 #          arguments: build test -Dpact.verifier.publishResults=true
 
       - name: Build, test, and publish Pact verification results
-        run: ./gradlew build test -Dpact.verifier.publishResults="true"
+        run: ./gradlew clean build -Dpact.verifier.publishResults=true
