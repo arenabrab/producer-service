@@ -24,7 +24,7 @@ jobs:
       - name: Build and test with Gradle and publish Pact verification results
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build test -Ppact.verifier.publishResults=true
+          arguments: -Ppact.verifier.publishResults=true build test
 
 #      - name: Verify Pacts
 #        uses: gradle/gradle-build-action@v2
