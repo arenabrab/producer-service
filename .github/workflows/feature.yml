@@ -21,15 +21,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build and test with Gradle and publish Pact verification results
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: -Ppact.verifier.publisdhResults=true build test
-
-#      - name: Verify Pacts
+#      - name: Build and test with Gradle and publish Pact verification results
 #        uses: gradle/gradle-build-action@v2
-#        run: gradle pactVerify -Ppact.verifier.publishResults=true
 #        with:
-#          arguments: |
-#          -Ppact.verifier.publishResults=true
-#          pactVerify
+#          arguments: build # test -Ppact.verifier.publishResults=true
+      - name: Build, test, and publish Pact verification results
+        run: ./gradlew build test -Ppact.verifier.publishResults=true
