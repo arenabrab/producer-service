@@ -28,12 +28,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Pull from main branch
-        run: |
-          git config pull.rebase false
-          git pull origin main
-          git status
-
       - name: Build and test with Gradle and publish Pact verification results
         uses: gradle/gradle-build-action@v2
         with:
@@ -42,4 +36,4 @@ jobs:
       - name: Verify Pacts
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: pactVerify
+          arguments: pactVerify -Ppact.provider.branch=$GITHUB_REF_NAME
