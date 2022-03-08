@@ -26,7 +26,7 @@ public class ProducerConfig {
     }
 
     private static Mono<ServerResponse> getV2(ServerRequest request) {
-        return ServerResponse.ok().body(Mono.just(new Provider("Laetitia", 2, new Pet("Coco", 8, 8, "SPIDER", false))), Provider.class);
+        return ServerResponse.ok().body(Mono.just(new Provider("Laetitia", 2, new Pet("Coco", 8, 8, "LIZARD", false))), Provider.class);
     }
 
 }
