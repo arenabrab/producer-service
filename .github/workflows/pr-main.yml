@@ -38,4 +38,4 @@ jobs:
       - name: Gradle test and publish results
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: test -DGITHUB_CI=true -Dversion=${ scmVersion.version }
+          arguments: test -DGITHUB_CI=true
