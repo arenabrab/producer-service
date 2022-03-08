@@ -11,7 +11,12 @@ group = 'com.example'
 sourceCompatibility = '17'
 
 scmVersion {
-    versionCreator 'versionWithBranch'
+    def versionSha = System.getenv("GITHUB_SHA")
+    versionSha = versionSha ? "-${versionSha.substring(0, 8)}" : ""
+    snapshotCreator = { version, position -> "-" + position.getBranch() + versionSha }
+    tag {
+        prefix = 'provider-service-'
+    }
 }
 
 version = scmVersion.version
