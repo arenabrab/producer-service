@@ -44,7 +44,7 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-//    systemProperties['pact.verifier.publishResults'] = true
+    systemProperties['pact.verifier.publishResults'] = System.getProperty("GITHUB_CI") ?: false
     systemProperties['pact.provider.version'] = scmVersion.version
 }
 
