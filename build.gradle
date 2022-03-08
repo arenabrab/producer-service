@@ -35,7 +35,7 @@ repositories {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-webflux:2.6.3'
     compileOnly 'org.projectlombok:lombok:1.18.22'
-    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'au.com.dius.pact.provider:junit5spring:4.3.5'
     testImplementation 'org.spockframework:spock-spring:2.1-groovy-3.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.3'
