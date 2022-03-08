@@ -1,5 +1,6 @@
 package com.example.producerservice.config;
 
+import com.example.producerservice.records.Pet;
 import com.example.producerservice.records.Provider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +18,6 @@ public class ProducerConfig {
         return RouterFunctions.route()
                 .GET("/v1/get", ProducerConfig::getV1)
                 .GET("/v2/get", ProducerConfig::getV2)
-                .GET("/v3/get", ProducerConfig::getV3)
                 .build();
     }
 
@@ -26,11 +26,7 @@ public class ProducerConfig {
     }
 
     private static Mono<ServerResponse> getV2(ServerRequest request) {
-        return ServerResponse.ok().body(Mono.just("Hello from V2"), String.class);
-    }
-
-    private static Mono<ServerResponse> getV3(ServerRequest request) {
-        return ServerResponse.ok().body(Mono.just(new Provider("Cat", 2)), Provider.class);
+        return ServerResponse.ok().body(Mono.just(new Provider("George", 2, new Pet("Coco", 8, 8, "SPIDER", false))), Provider.class);
     }
 
 }

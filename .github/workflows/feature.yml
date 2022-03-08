@@ -26,7 +26,7 @@ jobs:
         with:
           arguments: build test
 
-#      - name: Verify Pacts
-#        uses: gradle/gradle-build-action@v2
-#        with:
-#          arguments: pactVerify -Ppact.provider.branch=$GITHUB_REF_NAME
+      - name: Verify Pacts
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: pactVerify -Ppact.verifier.publishResults=true
