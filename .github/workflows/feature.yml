@@ -27,6 +27,9 @@ jobs:
           arguments: build test
 
       - name: Verify Pacts
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: -Ppact.verifier.publishResults=true pactVerify
+#        uses: gradle/gradle-build-action@v2
+        run: gradlew pactVerify -Ppact.verifier.publishResults=true
+#        with:
+#          arguments: |
+#          -Ppact.verifier.publishResults=true
+#          pactVerify
