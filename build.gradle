@@ -44,8 +44,8 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
-//    systemProperties['pact.verifier.publishResults'] = true
-    systemProperties['pact.provider.version'] = scmVersion.version
+    systemProperties['pact.verifier.publishResults'] = true
+//    systemProperties['pact.provider.version'] = scmVersion.version
 }
 
 pact {
