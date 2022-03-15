@@ -24,4 +24,4 @@ jobs:
       - name: Build and test with Gradle and publish Pact verification results
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build test -DGITHUB_CI=true
+          arguments: build test -DGITHUB_CI=true -Dpact.provider.branch=feature
