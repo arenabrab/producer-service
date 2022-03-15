@@ -1,5 +1,6 @@
 package com.example.producerservice.config;
 
+import com.example.producerservice.records.Animal;
 import com.example.producerservice.records.Pet;
 import com.example.producerservice.records.Provider;
 import com.github.javafaker.Faker;
@@ -12,6 +13,7 @@ import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
 import java.util.function.Supplier;
 
 @Configuration
@@ -27,6 +29,7 @@ public class ProducerConfig {
         return RouterFunctions.route()
                 .GET("/v1/get", ProducerConfig::getV1)
                 .GET("/v2/get", this::getV2)
+                .GET("/v3/get", this::getV3)
                 .build();
     }
 
@@ -49,4 +52,9 @@ public class ProducerConfig {
                         faker().backToTheFuture().character(),
                         false));
 
+    private Mono<ServerResponse> getV3(ServerRequest request) {
+        return ServerResponse.ok().body(Mono.fromSupplier(() -> new Animal("Rex", 4, 3, "BABOON", false, BigDecimal.valueOf(3.46), false)), Animal.class);
+    }
+
 }
+
